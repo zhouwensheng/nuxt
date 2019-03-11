@@ -7,7 +7,7 @@
   "config": {
     "nuxt": {
       "host": "127.0.0.1",
-      "port": "808"
+      "port": "5678"
     }
   },
   "scripts": {
