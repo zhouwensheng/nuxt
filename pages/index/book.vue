@@ -1,5 +1,6 @@
 <template>
     <div>
+        喜扑钓安抚萨芬
         <ul>
             <li @click='getbook(item.bookname)' v-for='item in book' :key='item.bookid'>{{item.name}}<span class="fr">作者: {{item.author}}</span></li>
         </ul>
