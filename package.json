@@ -4,6 +4,12 @@
   "description": "My shining Nuxt.js project",
   "author": "zhouwensheng",
   "private": true,
+  "config": {
+    "nuxt": {
+      "host": "127.0.0.1",
+      "port": "808"
+    }
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
