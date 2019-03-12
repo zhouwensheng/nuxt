@@ -54,9 +54,9 @@ import vueWaterfallEasy from  '@/components/vue-waterfall-easy.vue';
         },
         created () { 
             let url=`${AppUtil.http}picture/falls`;
-            $.post(url,(data)=>{
+            axios.post(url).then((data) => {
                 this.imges=[];
-                data.forEach(val=>{
+                data.data.forEach(val=>{
                     this.imges.push(val.picture)
                 })
                 if(this.imges.length<59){

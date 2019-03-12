@@ -56,7 +56,8 @@ module.exports = {
     transpile: [/^element-ui/],
     plugins: [
       new webpack.ProvidePlugin({
-        '$': 'jquery'
+        '$': 'jquery',
+        'axios':'axios'
       })
     ],
     /*

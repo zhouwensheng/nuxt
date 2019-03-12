@@ -31,16 +31,15 @@
            }
         },
         created(){
-            $.post(`${AppUtil.http}music/aggregateData`,(data)=>{
-                if(data.success){
-                    let parameter = data.data || [];
+            axios.post(`${AppUtil.http}music/aggregateData`).then((data) => {
+                if(data.data.success){
+                    let parameter = data.data.data || [];
                     parameter.forEach((val)=>{
                         val.musicName=val.musicName.split(';');
                         val.picture=`${AppUtil.http}images/`+val.picture;
                     })
-                    this.music=data.data;
+                    this.music=data.data.data;
                 }
-                
             })
         }
     }

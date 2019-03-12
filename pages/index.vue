@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -62,7 +63,7 @@ export default {
     // 监听路由
     getPath(data,data2){
         let name = this.$route.fullPath.split('/')[1];
-        if(name == 'index'){
+        if(!name){
             this.clickname = 1;
         }else if(name == 'katong'){
             this.clickname = 2;
@@ -79,6 +80,7 @@ export default {
         }else if(name =='chitchat'){
             this.clickname = 8;
         }
+        AppUtil.Local.setLocal('clickname',this.clickname)
     },
     // 置顶
     getApplocation() {
@@ -96,6 +98,10 @@ export default {
     },
   },
   mounted() {
+    var clickname = AppUtil.Local.getLocal('clickname');
+    if(clickname){
+      this.clickname = clickname;
+    }
     window.addEventListener("scroll", () => {
       if (document.documentElement.scrollTop > 500) {
         this.Stick = true;

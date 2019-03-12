@@ -25,8 +25,8 @@
             }
         },
         created(){
-            $.post(`${AppUtil.http}view/videoList`,(data) => {
-                let parameter = data.data || [];
+            axios.post(`${AppUtil.http}view/videoList`).then((data) => {
+                let parameter = data.data.data || [];
                 this.url = parameter.map((val)=>{
                     return {url:`${AppUtil.http}view/`+val.name,name:val.name};
                 })

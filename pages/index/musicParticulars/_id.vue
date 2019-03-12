@@ -58,9 +58,9 @@
             }
         },
         created(){
-            $.post(`${AppUtil.http}music/aggregateData`,(data)=>{
-                if(data.success){
-                    let parameter = data.data || [];
+            axios.post(`${AppUtil.http}music/aggregateData`).then((data) => {
+                if(data.data.success){
+                    let parameter = data.data.data || [];
                     parameter.forEach((val)=>{
                         if(val.name==this.$route.params.id){
                             val.musicName=val.musicName.split(';');

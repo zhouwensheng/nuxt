@@ -19,10 +19,10 @@
                 this.$router.push({name:'index-bookparticulars-id',params:{id:data}})
             }
         },
-        created(){
+        mounted(){
             let url=`${AppUtil.http}book/catalogue`;
-            $.post(url,(data)=>{
-                this.book = data.data || [];
+            axios.post(url).then((data) => {
+                this.book = data.data.data || [];
             })
         }
     }

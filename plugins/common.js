@@ -61,3 +61,19 @@ Array.prototype.contains = function (obj, obj2) {
     }
     return false;
 };
+
+// 封装ajax请求
+global.F = {
+    post:(url, data) => {
+        var data = data || {};
+        data.method = 'post';
+        return  fetch(url,data).then((res) => {
+            return res.json()
+        })
+    },
+    get:(url) => {
+        return fetch(url).then((res) => {
+            return res.json();
+        })
+    }
+}
